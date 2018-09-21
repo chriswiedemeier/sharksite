@@ -3,46 +3,147 @@
         alert(test);  
     }
     
-    var courage = 0;
-    var nourishment = 0;
-    var cunning = 0;
-    var strength = 0;
+
     
     function resetShark(){
-        courage = 0;
-        nourishment = 0;
-        cunning = 0;
-        strength = 0;
+        
+        sessionStorage.setItem("courage",0);
+         sessionStorage.setItem("nourishment",0);
+          sessionStorage.setItem("cunning",0);
+           sessionStorage.setItem("strength",0);
+           
     }
     
     function addAttribute(attribute){
-        
+        alert("BEFORE " +sessionStorage.courage + " "
+           + sessionStorage.nourishment  + " "
+           + sessionStorage.cunning + " "
+           + sessionStorage.strength)
+           
+           
         switch(attribute){
             case "courage":
-                courage++;
+                 sessionStorage.courage = Number(sessionStorage.courage)+1;
                 break;
             case "nourishment":
-                nourishment++;
+                sessionStorage.nourishment = Number(sessionStorage.nourishment)+1;
                 break;
             case "cunning":
-                cunning++;
+                sessionStorage.cunning = Number(sessionStorage.cunning)+1;
                 break;
             case "strength":
-                strength++;
+                sessionStorage.strength = Number(sessionStorage.strength)+1;
                 break;
             default:
             
                 break;
         }
+        
+        alert("AFTER " +sessionStorage.courage + " "
+           + sessionStorage.nourishment  + " "
+           + sessionStorage.cunning + " "
+           + sessionStorage.strength)
     }
     
     function calculateShark(){
+       // alert("calculate shark called!");
+        
+        var courage = Number(sessionStorage.courage);
+        var nourishment = Number(sessionStorage.nourishment);
+        var cunning = Number(sessionStorage.cunning);
+        var strength = Number(sessionStorage.strength);
+        
         var shark;
+        var sharkImage;
+        var sharkText;
+      
         
-        shark = "Courage: " + courage +" Nourishment: " + nourishment 
-        +" Cunning: " + cunning + " Strength: " + strength;
         
-        return shark;
+        //C HAMMERHEAD
+        //S MEGALODON 
+        //Cu LEMON
+        //N WHALE
+        if (courage>=4){
+            shark="Hammerhead Shark";
+            sharkImage = "hammer";
+            sharkText = "Hammer boy!";
+        }
+        else if(strength>=4){
+            shark = "Megalodon";
+            sharkImage = "meg";
+            sharkText = "Hammer boy!";
+        }
+        else if (cunning>=4){
+            shark = "Lemon Shark";
+            sharkImage = "lemon";
+            sharkText = "Hammer boy!";
+        }
+        else if (nourishment>=4){
+            shark = "Whale Shark";
+            sharkImage = "whale";
+            sharkText = "Hammer boy!";
+        }
+          //++++ BLUE
+        else if (
+            (courage == 2 && nourishment == 1 && cunning == 1 && strength == 1)||
+            (courage == 1 && nourishment == 2 && cunning == 1 && strength == 1)||
+            (courage == 1 && nourishment == 1 && cunning == 2 && strength == 1)||
+            (courage == 1 && nourishment == 1 && cunning == 1 && strength == 2)){
+            
+            shark = "Blue";
+            sharkImage = "blue";
+            sharkText = "Hammer boy!";
+        }
+        
+        //C+S BULL
+        //C+Cu FRILLED
+        //C+N NURSE
+        //S+Cu GREAT WHITE
+        //S+N SLEEPER
+        //Cu+N TIGER
+        else if ((courage>=2 && strength >=2)||courage==3){
+            shark = "Bull Shark";
+            sharkImage = "bull";
+            sharkText = "Hammer boy!";
+        }
+        else if (courage>=2 && cunning >=2){
+            shark = "Frilled Shark";
+            sharkImage = "frilled";
+            sharkText = "Hammer boy!";
+        }
+        else if ((courage>=2 && nourishment >=2)||nourishment==3){
+            shark = "Nurse Shark";
+            sharkImage = "nurse";
+            sharkText = "Hammer boy!";
+        }
+        else if ((strength>=2 && cunning >=2)||strength==3){
+            shark = "Great White Shark";
+            sharkImage = "white";
+            sharkText = "Hammer boy!";
+        }
+        else if (strength>=2 && nourishment>=2){
+            shark = "Greenland Shark";
+            sharkImage = "greenland";
+            sharkText = "Hammer boy!";
+        }
+        else if ((cunning>=2 && nourishment>=2)||cunning==3){
+            shark = "Tiger Shark";
+            sharkImage = "tiger";
+            sharkText = "Hammer boy!";
+        }else{
+            //In case of error give the ugly shark
+            shark = "Goblin Shark";
+            sharkImage = "goblin";
+            sharkText = "Hammer boy!";
+        }
+        
+        document.getElementById("sharkResult").textContent = shark;
+        sharkImage = "./images/sharks/"+sharkImage+".jpg";
+        //alert(sharkImage);
+        document.getElementById("sharkImage").src = sharkImage;
+        
+        document.getElementById("sharkDescription").textContent = sharkText;
+       
     }
     
     
@@ -62,7 +163,7 @@
         //C+Cu FRILLED
         //C+N NURSE
         //S+Cu GREAT WHITE
-        //S+N SLEEPER
+        //S+N GREENLAND
         //Cu+N TIGER
         //++++ BLUE\
         //10 shark options
