@@ -2,21 +2,41 @@
 <html>
     
     <head>
-        <script type="text/javascript" src="database.js"></script>
-        <link rel="stylesheet" type="text/css" href="main.css">
+        <script type="text/javascript" src="../database.js">
+            
+            window.onload = testFunction();
+            
+        </script>
+        
+        
+        <link rel="stylesheet" type="text/css" href="../main.css">
+        
     </head>
     
     <body>
-        
+
         <h2>Question 1</h2>
         
         <img><!--Question image goes here-->
-        <p>Every animal has a different personality. How would your friends describe your personality?</p>
+        <div class="norm">
+            <p>Every animal has a different personality. How would your friends describe your personality?</p>
+        </div>
+        
+        <div class="special">
+            <form action="" id="question1">
+              <input type="radio" name="personality" value="solitary"> Solitary<br>
+              <input type="radio" name="personality" value="friendly"> Friendly<br>
+              <input type="radio" name="personality" value="aggressive"> Aggressive<br>
+              <input type="radio" name="personality" value="laid-back"> Laid-back
+            </form>
         
         
-          <form action="./question2.html">
-            <input type="submit" value="Next Question" />
-        </form>
+        <button type="submit" form="question1" value="Submit">Submit</button>
+        
+        </div>
+                
+        
+        
         
     </body>
     
