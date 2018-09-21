@@ -2,19 +2,47 @@
 <html>
     
     <head>
-        <script type="text/javascript" src="database.js"></script>
-        <link rel="stylesheet" type="text/css" href="main.css">
+        <script src="database.js"  type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="../main.css">
     </head>
     
     <body>
         
         <h2>Question 2</h2>
         
-        <p>What time of day do you like best?</p>
+        <div class="questionImage">
+            <img src="../images/img2.jpg">
+        </div>
         
-          <form action="./question3.html">
-            <input type="submit" value="Next Question" />
+         <div class="norm">
+            <p id="testVariable">What time of day do you like best?</p>
+        </div>
+        
+        <div class="special">
+            <form action="" id="question2" 
+            onchange="document.getElementById('q2submit').disabled = false">
+        
+              <input type="radio" name="attribute" value="strength"> Morning<br><br>
+              
+              <input type="radio" name="attribute" value="cunning"> Early Afternoon<br><br>
+              
+              <input type="radio" name="attribute" value="nourishment"> Evening<br><br>
+              
+              <input type="radio" name="attribute" value="courage"> Night
+            </form>
+        
+        <form action="question3.html" onSubmit="return sendSharkAttribute()" type="submit">
+            <input id="q2submit" type="submit" value="Next Question" disabled on/>
         </form>
+        
+    <script>
+        function sendSharkAttribute(){
+                
+                var answer = document.getElementById('question2').attribute.value;
+                addAttribute(answer);
+            }
+        
+    </script>
         
     </body>
     

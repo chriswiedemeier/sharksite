@@ -2,41 +2,49 @@
 <html>
     
     <head>
-        <script type="text/javascript" src="../database.js">
-            
-            window.onload = testFunction();
-            
-        </script>
-        
-        
+        <script src="../database.js"  type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="../main.css">
-        
     </head>
     
     <body>
 
         <h2>Question 1</h2>
         
-        <img><!--Question image goes here-->
+        <div class="questionImage">
+            <img src="../images/img1.jpg"><!--Question image goes here-->
+        </div>
+        
         <div class="norm">
-            <p>Every animal has a different personality. How would your friends describe your personality?</p>
+            <p id="testVariable"> Every animal has a different personality. How would your friends describe your personality?</p>
         </div>
         
         <div class="special">
-            <form action="" id="question1">
-              <input type="radio" name="personality" value="solitary"> Solitary<br>
-              <input type="radio" name="personality" value="friendly"> Friendly<br>
-              <input type="radio" name="personality" value="aggressive"> Aggressive<br>
-              <input type="radio" name="personality" value="laid-back"> Laid-back
+            <form action="" id="question1" 
+            onchange="document.getElementById('q1submit').disabled = false">
+        
+              <input type="radio" name="attribute" value="courage"> Solitary<br><br>
+              
+              <input type="radio" name="attribute" value="cunning"> Friendly<br><br>
+              
+              <input type="radio" name="attribute" value="strength"> Aggressive<br><br>
+              
+              <input type="radio" name="attribute" value="nourishment"> Laid-back
             </form>
         
+        <form action="question2.html" onSubmit="return sendSharkAttribute()" type="submit">
+            <input id="q1submit" type="submit" value="Next Question" disabled on/>
+        </form>
         
-        <button type="submit" form="question1" value="Submit">Submit</button>
-        
-        </div>
+    <script>
+        function sendSharkAttribute(){
                 
+                resetShark();
+                var answer = document.getElementById('question1').attribute.value;
+                addAttribute(answer);
+            }
         
-        
+    </script>
+    
         
     </body>
     

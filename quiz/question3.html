@@ -3,18 +3,47 @@
     
     <head>
         <script type="text/javascript" src="database.js"></script>
-        <link rel="stylesheet" type="text/css" href="main.css">
+        <link rel="stylesheet" type="text/css" href="../main.css">
     </head>
     
     <body>
         
         <h2>Question 3</h2>
         
-        <p>You are enjoying your life in the ocean. What is your favorite place in the ocean to hang out?</p>
+        <div class="questionImage">
+            <img src="../images/img3.jpg">
+        </div>
         
-          <form action="./question4.html">
-            <input type="submit" value="See Results" />
+         <div class="norm">
+            <p>You are enjoying your life in the ocean. 
+            What is your favorite place in the ocean to hang out?</p>
+        </div>
+        
+        <div class="special">
+            <form action="" id="question3" 
+            onchange="document.getElementById('q3submit').disabled = false">
+        
+              <input type="radio" name="attribute" value="nourishment"> Sheltered Reefs<br><br>
+              
+              <input type="radio" name="attribute" value="cunning"> Warm Tropical Waters<br><br>
+              
+              <input type="radio" name="attribute" value="courage"> Wide Open Waters<br><br>
+              
+              <input type="radio" name="attribute" value="strength"> The Depths of the Sea
+            </form>
+        
+        <form action="question4.html" onSubmit="return sendSharkAttribute()" type="submit">
+            <input id="q3submit" type="submit" value="Next Question" disabled on/>
         </form>
+        
+    <script>
+        function sendSharkAttribute(){
+                
+                var answer = document.getElementById('question3').attribute.value;
+                addAttribute(answer);
+            }
+        
+    </script>
         
     </body>
     

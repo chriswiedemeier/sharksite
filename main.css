@@ -19,6 +19,17 @@ body {
    margin-top: 20px;
 }
 
+.questionImage {
+    
+   background-color:rgb(240, 240, 240);
+   display: inline-block;
+   border-radius: 25px;
+   padding: 20px;
+   margin-top: 20px;
+   margin-bottom: 10px;
+
+}
+
 form {
     
     margin-bottom: 20px;

@@ -2,6 +2,8 @@
 <html>
     
     <head>
+        <script type="text/javascript" src="database.js"></script>
+        <link rel="stylesheet" type="text/css" href="../main.css">
         
     </head>
     
@@ -9,11 +11,44 @@
         
         <h2>Question 4</h2>
         
-        <p>You’re getting hungry after a long day of swimming around the ocean, and it’s time to find food. What is your hunting strategy?</p>
+        <div class="questionImage">
+            <img src="../images/img4.jpg">
+        </div>
+      
+         <div class="norm">
+              <p>You&#39;re getting hungry after a long day of swimming around the 
+              ocean, and it&#39;s time to find food. What is your hunting strategy?</p>
+        </div>
         
-          <form action="./question5.html">
-            <input type="submit" value="Next Question" />
+        <div class="special">
+            <form action="" id="question4" 
+            onchange="document.getElementById('q4submit').disabled = false">
+        
+              <input type="radio" name="attribute" value="courage"> 
+              Wait for a small, unsuspecting creature to swim by to attack<br><br>
+              
+              <input type="radio" name="attribute" value="nourishment"> 
+              Try to filter out small particles of food from the water<br><br>
+              
+              <input type="radio" name="attribute" value="strength"> 
+              Outpace and overcome your prey with your amazing speed<br><br>
+              
+              <input type="radio" name="attribute" value="cunning"> 
+              Slowly scavenge for whatever you can, coming undetected with your stealth
+            </form>
+        
+        <form action="question5.html" onSubmit="return sendSharkAttribute()" type="submit">
+            <input id="q4submit" type="submit" value="Next Question" disabled on/>
         </form>
+        
+    <script>
+        function sendSharkAttribute(){
+                
+                var answer = document.getElementById('question4').attribute.value;
+                addAttribute(answer);
+            }
+        
+    </script>
         
     </body>
     

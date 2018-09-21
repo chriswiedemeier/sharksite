@@ -2,18 +2,55 @@
 <html>
     
     <head>
-        
+        <script type="text/javascript" src="database.js"></script>
+        <link rel="stylesheet" type="text/css" href="../main.css">
     </head>
     
     <body>
         
         <h2>Question 5</h2>
+      
+        <div class="questionImage">
+            <img src="../images/img5.jpg">
+        </div>
         
-        <p>At long last, you have come upon suitable prey, and are about to eat a delicious meal of your favorite food! As you enjoy this moment of victory and nourishment, what do your jaws clench around?</p>
+        <div class="norm">
+            <p>At long last, you have come upon suitable prey, and are about to 
+            eat a delicious meal of your favorite food! As you enjoy this moment 
+            of victory and nourishment, what do your jaws clench around?</p>
+        </div>
         
-          <form action="../result.html">
-            <input type="submit" value="See Results" />
+        <div class="special">
+            <form action="" id="question5" 
+            onchange="document.getElementById('q5submit').disabled = false">
+        
+              <input type="radio" name="attribute" value="strength"> 
+               A crunchy crustacean snack!<br><br>
+              
+              <input type="radio" name="attribute" value="cunning"> 
+              A mouthful of plankton!<br><br>
+              
+              <input type="radio" name="attribute" value="courage"> 
+              A soft and chewy squid!<br><br>
+              
+              <input type="radio" name="attribute" value="nourishment"> 
+              As long as it&#39;s food, it doesn’t matter-you love everything!
+              
+            </form>
+        
+        <form action="../result.html" onSubmit="return sendSharkAttribute()" type="submit">
+            <input id="q5submit" type="submit" value="Next Question" disabled on/>
         </form>
+        
+    <script>
+        function sendSharkAttribute(){
+                
+                var answer = document.getElementById('question5').attribute.value;
+                addAttribute(answer);
+            }
+        
+    </script>
+        
         
     </body>
     
